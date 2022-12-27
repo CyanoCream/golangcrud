@@ -18,7 +18,7 @@ func HalloHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl, err := template.ParseFiles(path.Join("views", "index.html"))
+	tmpl, err := template.ParseFiles(path.Join("views", "index.html"), path.Join("views", "layouts.html"))
 
 	if err != nil {
 		log.Println(err)
