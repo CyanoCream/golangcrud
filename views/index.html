@@ -1,4 +1,29 @@
 {{ template "layouts" .}}
 {{ define "main"}}
-<div class="text">test {{ .Nama }}</div>
+
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+            {{ range . }}
+          <tr>
+            <th scope="row">{{ .ID }}</th>
+            <td>{{ .Nama }}</td>
+            {{ if lt .Stock 3}}
+            <td class="text-danger text-bold">Stock Hampis Habis</td>
+            {{ else }}
+            <td class="text-warning text-bold">Stock Menipis</td>
+            {{ end }}
+          </tr>
+          {{ end }}
+        </tbody>
+      </table>
+
+</div>
 {{ end }}
