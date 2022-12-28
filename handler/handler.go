@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"golangweb/entity"
 	"html/template"
 	"log"
 	"net/http"
@@ -26,11 +27,12 @@ func HalloHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := map[string]interface{}{
-		"id":   "1",
-		"nama": "Belajar Golang Fundamental",
-	}
+	// data := map[string]interface{}{
+	// 	"id":   "1",
+	// 	"nama": "Belajar Golang Fundamental",
+	// }
 
+	data := entity.Buku{ID: 1, Nama: "Belajar Golang Fundamental", Stock: 3}
 	erro := tmpl.Execute(w, data)
 	if erro != nil {
 		log.Println(err)
